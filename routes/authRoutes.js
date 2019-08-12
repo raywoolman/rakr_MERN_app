@@ -1,3 +1,5 @@
+//contains express routing. Exported as arrow function so when it is required, it is called
+
 const passport = require('passport');
 
 module.exports = (app) => {
