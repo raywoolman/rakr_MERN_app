@@ -1,5 +1,5 @@
 //This file contains code that is associated with booting up our app
-
+//To deploy app to Heroku via git, add . then commit to my git, then: git push heroku master.
 const express = require('express');
 const mongoose = require('mongoose');
 const cookieSession = require('cookie-session');
