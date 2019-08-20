@@ -11,6 +11,7 @@ const keys = require('../config/keys')
 // args (one Schema name and other Schema), means pushing data
 const User = mongoose.model('users')
 
+
 passport.serializeUser((user, done) => {
   done(null, user.id);
 });
