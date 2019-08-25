@@ -38,13 +38,12 @@ passport.use(new GoogleStrategy({
     // we already have a profile with that ID. Skip making new profile done
     // (passport method) takes 2 args. 1: to send if there has been an error (no
     // error: null). 2: user record: In this case, existing user.
-    done(null, existingUser);
-  } else {
-    // No record exists with this ID, so create one and save. As this is
-    // asynchronous, use .then promise to call done with no error and the user. User
-    // is allocated in return of then promise, because Mongo may return a slightly
-    // different instance in the promise
-    const user = await new User({googleId: profile.id}).save();
-    done(null, user)
+    return done(null, existingUser);
   }
+  // No record exists with this ID, so create one and save. As this is
+  // asynchronous, use .then promise to call done with no error and the user. User
+  // is allocated in return of then promise, because Mongo may return a slightly
+  // different instance in the promise
+  const user = await new User({googleId: profile.id}).save();
+  done(null, user)
 }));
