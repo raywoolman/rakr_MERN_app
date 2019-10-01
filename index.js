@@ -31,7 +31,9 @@ app.use(passport.session());
 require('./routes/authRoutes')(app);
 require('./routes/billingRoutes')(app);
 
+console.log("above if",process.env.NODE_ENVV ==='production',process.env.NODE_ENVV, typeof process.env.NODE_ENVV)
 if (process.env.NODE_ENVV ==='production') {
+    console.log("in it")
     // Express will serve prod. assets (main.js / main.ss)
     app.use(express.static('client/build'));
     //Express will serve index.html if unrecognised route
